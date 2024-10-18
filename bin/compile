@@ -64,7 +64,7 @@ info "Unpacked."
 
 topic "Configuring license file..."
 if [ -f $ENV_DIR/PRINCE_LICENSE ]; then
-  cp $ENV_DIR/PRINCE_LICENSE "$CACHE_DIR/prince-unpacked/lib/prince/license/license.dat"
+  cp $ENV_DIR/PRINCE_LICENSE "$CACHE_DIR/prince-unpacked/lib/prince-books/license/license.dat"
   info "Configured."
 else
   info "Skipped."
@@ -79,5 +79,5 @@ echo "export PATH='$HOME/.princexml/bin:$PATH'" > "$BUILD_DIR/.profile.d/prince.
 
 cat > "$INSTALL_DIR/bin/prince" <<'EOF'
 #!/bin/sh
-exec "$HOME/.princexml/lib/prince/bin/prince" --prefix="$HOME/.princexml/lib/prince" "$@"
+exec "$HOME/.princexml/lib/prince-books/bin/prince-books" --prefix="$HOME/.princexml/lib/prince-books" "$@"
 EOF
